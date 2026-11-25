@@ -1,0 +1,78 @@
+GGST 反击延迟 MOD 说明书
+适用：Unverum 模组管理器
+内容来自成品包，没有改延迟功能。
+
+这个 MOD 只做一件事：离线训练场里，给 5 个反击条件分别设延迟帧数。触发时按你设的帧数晚出招。
+
+一、用 Unverum 安装
+
+1. 打开 Unverum，游戏选 Guilty Gear -Strive-。
+2. 点 Open Mods Folder，进入 Mods\Guilty Gear -Strive-。
+3. 把「GGST-反击延迟」整个文件夹放进这个目录。不要只丢 dll。
+   文件夹里面应是：
+   GGST-反击延迟\ue4ss\SF6ReversalDelay\Scripts\main.lua
+   GGST-反击延迟\ue4ss\SF6ReversalDelay\Scripts\SF6ReversalDelay.dll
+4. 回到 Unverum，列表里勾上 GGST-反击延迟。
+5. 点 Build。装完后完全退出游戏再开。已经开着的游戏不会吃到新 MOD。
+
+Build 之后，文件会到：
+RED\Binaries\Win64\Mods\SF6ReversalDelay\Scripts\
+管理器会在 Mods\mods.txt 里加上 SF6ReversalDelay : 1。
+
+二、不要和训练菜单一起开
+
+本 MOD 和 SF6TrainingMenu 用同一组游戏函数，不能同时开。
+两个都开时，反击延迟会自己停用，窗口底部显示「侦测到训练菜单 MOD」。
+
+要用反击延迟：SF6TrainingMenu 设为 0，SF6ReversalDelay 设为 1。
+改的是游戏目录里的 RED\Binaries\Win64\Mods\mods.txt。改完重开游戏。
+
+三、怎么用
+
+1. 进离线训练场。
+2. 按 F6 打开或关闭设置窗口。窗口画在游戏画面里。
+3. 按键：
+
+   W 或 ↑          上一条条件
+   S 或 ↓          下一条条件
+   A 或 ←          延迟减 1 帧
+   D 或 →          延迟加 1 帧
+   Shift + A/D     一次加减 5 帧
+   U               打开或关闭这一条的延迟
+   I、Enter、Esc   关闭窗口
+
+5 个条件对应游戏里的反击菜单：
+
+   1  倒地反攻
+   2  格挡反攻
+   3  受伤恢复后的反攻
+   4  拆投后反攻
+   5  位置重置后反攻
+
+延迟范围 0 到 60 帧。0 帧就是完全按游戏原来的时机出手。
+每一行右边是当前帧数和开关。第二行是这一条选中的招式：动作1、动作2、动作3或随机。
+
+四、换呼出键
+
+设置写在 DLL 旁边的 SF6ReversalDelay.ini：
+RED\Binaries\Win64\Mods\SF6ReversalDelay\Scripts\SF6ReversalDelay.ini
+
+[Window]
+toggle=117
+alt_toggle=0
+
+117 是 F6，116 是 F5。改完后重新进入训练场再生效。
+alt_toggle=0 表示没有第二个呼出键。
+
+五、出了问题看日志
+
+同一目录下的 SF6ReversalDelay.log：
+
+reversal delay hooks installed
+    挂钩成功。
+
+reversal delay hooks failed
+    游戏版本不对。这个成品只支持 Steam build 24797162。
+
+SF6Menu.dll is loaded; delay hooks are disabled
+    训练菜单还开着。把 SF6TrainingMenu 设成 0，重开游戏。
