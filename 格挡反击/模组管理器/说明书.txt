@@ -1,0 +1,58 @@
+GGST 格挡反击（停手 120 帧重计）说明书
+适用：Unverum 模组管理器
+文件就是压缩包里那一份，没有改功能。Steam build 24797162。
+
+这一份是反击延迟模组的升级。格挡反攻可以设成从第几下才出手，并保留原来的延迟帧数。连续 120 个游戏帧没有新的格挡，次数归零，下一次再从第一下数。
+
+一、用 Unverum 安装
+
+1. 打开 Unverum，游戏选 Guilty Gear -Strive-。
+2. 点 Open Mods Folder，进入 Mods\Guilty Gear -Strive-。
+3. 把「GGST-格挡反击」整个文件夹放进这个目录。不要只丢 dll。
+   文件夹里面应是：
+   GGST-格挡反击\ue4ss\SF6ReversalDelay\Scripts\main.lua
+   GGST-格挡反击\ue4ss\SF6ReversalDelay\Scripts\SF6ReversalDelay.dll
+4. 如果列表里还有以前的「GGST-反击延迟」，先取消勾选。两份都会写进同一个 SF6ReversalDelay 文件夹，只能留这一份。
+5. 勾上 GGST-格挡反击，点 Build。装完后完全退出游戏再开。
+
+Build 之后，文件会到：
+RED\Binaries\Win64\Mods\SF6ReversalDelay\Scripts\
+管理器会在 mods.txt 里保持 SF6ReversalDelay : 1。
+
+二、不要和训练菜单一起开
+
+和 SF6TrainingMenu 不能同时开。两个都开时，延迟会自己停用。
+mods.txt 里 SF6TrainingMenu 设为 0。
+
+三、怎么用
+
+进离线训练场。先在游戏自己的反击菜单里给「格挡反攻」选好招式。
+
+F6           打开或关闭中间的延迟窗口
+W / S        换一条条件
+A / D        延迟减 1 帧 / 加 1 帧
+Shift+A/D    一次加减 5 帧
+U            打开或关闭这一条
+选中第 2 条（格挡反攻）时：
+J / K        把「第几下起」减 1 / 加 1，范围 1 到 99
+I、Enter、Esc  关闭窗口
+
+第 1 下就是每次格挡都按延迟出手。设成第 4 下时，前三次只防守，从第四次起才按你设的帧数反击。
+第四下还没出招又挡住第五下时，延迟从第五下的硬直结束重新算。
+0 帧就是按游戏原来的时机出手。
+停手满 120 帧、位置重置、换回合、帧数倒退、改次数或关掉再打开这一条，都会从第一下重数。
+
+四、和存档、F 式防御
+
+F6 仍会一起打开状态存档的窗口。存档的 Q/E、O/P 不变。
+F6 也会一起打开 F 式防御左下角的状态窗。F7、F8 仍是那一份自己的开关和重置。
+
+五、出了问题看日志
+
+RED\Binaries\Win64\Mods\SF6ReversalDelay\Scripts\SF6ReversalDelay.log
+
+reversal delay hooks installed
+    挂钩成功。
+
+SF6Menu.dll is loaded; delay hooks are disabled
+    训练菜单还开着。把它设成 0，重开游戏。

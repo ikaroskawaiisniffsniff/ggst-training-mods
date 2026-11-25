@@ -1,0 +1,42 @@
+GGST F 式防御 MOD 说明书
+适用：Unverum 模组管理器
+这一份可以单独用。dll 和直接安装版是同一个文件。防御功能不读延迟帧数，也不读存档栏位。
+
+一、用 Unverum 安装
+
+1. 打开 Unverum，游戏选 Guilty Gear -Strive-。
+2. 点 Open Mods Folder，进入 Mods\Guilty Gear -Strive-。
+3. 把「GGST-F式防御」整个文件夹放进这个目录。不要只丢 dll。
+   文件夹里面应是：
+   GGST-F式防御\ue4ss\FuzzyGuard\Scripts\main.lua
+   GGST-F式防御\ue4ss\FuzzyGuard\Scripts\FuzzyGuard.dll
+4. 回到 Unverum，列表里勾上 GGST-F式防御。
+5. 点 Build。装完后完全退出游戏再开。
+
+Build 之后，文件会到：
+RED\Binaries\Win64\Mods\FuzzyGuard\Scripts\
+管理器会在 Mods\mods.txt 里加上 FuzzyGuard : 1。
+
+二、不要和训练菜单一起开
+
+SF6TrainingMenu 设为 0。改的是游戏目录里的 RED\Binaries\Win64\Mods\mods.txt。改完重开游戏。
+
+三、怎么用
+
+进离线训练场，陪练设成训练假人。
+
+F6    打开或关闭左下角状态小窗。窗上能看到当前是开还是关。
+F7    开启或关闭 F 式防御。没进训练场时按了不会开。
+F8    让下一下重新站防。
+
+每次开游戏默认是关的。关掉小窗不会把练习关掉。
+
+四、和另外两个模组一起开
+
+可以一起开。三个小窗共用同一次 F6：延迟在中间，存档在右上角，这个在左下角。
+一起开时，这个状态窗借延迟那一次绘图画出来，避免再挂一次绘图导致崩溃。
+只开这一份时，它自己画左下角的窗。
+
+只支持 Steam build 24797162。
+出了问题看同一目录下的 FuzzyGuard.log。
+单独使用时日志里有 status draws by itself。

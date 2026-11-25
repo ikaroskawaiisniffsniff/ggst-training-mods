@@ -1,0 +1,35 @@
+GGST F 式防御。直接放进游戏，不用模组管理器。
+这一份可以单独用。防御功能在自己的 FuzzyGuard.dll 里，不读延迟帧数，也不读存档栏位。
+
+一、安装
+
+1. 完全退出游戏。
+2. 把本包里的 Mods\FuzzyGuard 文件夹复制到：
+   游戏\RED\Binaries\Win64\Mods\
+   复制后应是：
+   RED\Binaries\Win64\Mods\FuzzyGuard\Scripts\main.lua
+   RED\Binaries\Win64\Mods\FuzzyGuard\Scripts\FuzzyGuard.dll
+3. 打开 RED\Binaries\Win64\Mods\mods.txt，在 Keybinds 那一行上面加上：
+   FuzzyGuard : 1
+4. 不要和 SF6TrainingMenu 一起开，那一行保持 0。
+5. 再开游戏。
+
+二、怎么用
+
+进离线训练场，陪练设成训练假人。
+
+F6    打开或关闭左下角状态小窗。窗上能看到当前是开还是关。
+F7    开启或关闭 F 式防御。没进训练场时按了不会开。
+F8    让下一下重新站防。
+
+每次开游戏默认是关的。关掉小窗不会把练习关掉。
+
+三、和另外两个模组一起开
+
+可以一起开。三个小窗共用同一次 F6：延迟在中间，存档在右上角，这个在左下角。
+一起开时，这个状态窗借延迟那一次绘图画出来，避免再挂一次绘图导致崩溃。
+只开这一份时，它自己画左下角的窗。
+
+只支持 Steam build 24797162。
+出了问题看 RED\Binaries\Win64\Mods\FuzzyGuard\Scripts\FuzzyGuard.log。
+单独使用时日志里有 status draws by itself。
